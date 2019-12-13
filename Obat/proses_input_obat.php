@@ -10,7 +10,7 @@ $expr = $_POST['expired'];
 //upload
 $nama_gambar=$_FILES['poto']['name'];
 $tmp=$_FILES['poto']['tmp_name'];
-$folder="imagesObat/";
+$folder="images_obat/";
 $target_file=$folder.$nama_gambar;
 $proses=move_uploaded_file($tmp,$target_file);
 
