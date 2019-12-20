@@ -14,11 +14,11 @@ $folder="images_obat/";
 $target_file=$folder.$nama_gambar;
 $proses=move_uploaded_file($tmp,$target_file);
 
-$query = "INSERT INTO tbl_obat (kode,nama_obat,jenis_obat,harga_beli,harga_jual,expired,poto) VALUES ('$kd_obat','$nm_obat','$js_obat','$beli','$jual','$expr','$target_file')";
+$query = "UPDATE tbl_obat SET nama_obat='$nm_obat', jenis_obat='$js_obat', harga_beli='$beli', harga_jual='$jual', expired='$expr', poto='$target_file' WHERE kode='$kd_obat'";
 if (mysqli_query($con, $query)) {
     ?>
     <script>
-        alert('data berhasil di simpan');
+        alert('data berhasil di ubah');
         document.location = 'DataObat.php';
     </script>
 <?php
@@ -26,8 +26,8 @@ if (mysqli_query($con, $query)) {
 } else {
     ?>
     <script>
-        alert('Gagal di simpan');
-        document.location = 'inputdataobat.php';
+        alert('Gagal di ubah');
+        document.location = 'DataObat.php';
     </script>
 <?php
 }

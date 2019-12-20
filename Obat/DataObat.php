@@ -27,7 +27,7 @@
 
     <div class="container">
         <h4 class="text-center pt-2">Data Obat Apotek Bumigora</h4>
-        <a href="inputdataobat.html" class="text.right">
+        <a href="inputdataobat.php" class="text-right">
             <button class="btn btn-success mb-1"> Tambah Obat</button>
         </a>
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -85,6 +85,7 @@
                     <th>harga beli</th>
                     <th>harga jual</th>
                     <th>expired</th>
+                    <th>images</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -106,6 +107,9 @@
                     <td> <?= $data->harga_jual ?> </td>
                     <td> <?= $data->expired ?> </td>
                     <td>
+                        <img src="<?= $data->poto ?>" width="60px" height="60px">
+                    </td>
+                    <td>
                         <a href="edit_obat.php?kode=<?= $data->kode ?>" class="btn btn-warning">edit</a>
                         <a href="delete_obat.php?kode=<?= $data->kode ?>" onclick="return confirm('anda yakin ingin hapus ?')" class="btn btn-danger">Delete</a>
                     </td>
@@ -125,8 +129,8 @@
         $('#myTable').DataTable({
             searching: false,
             lengthMenu: [
-                [3, 6, 12, -1],
-                [3, 6, 12, "all"]
+                [6, 12, 24, -1],
+                [6, 12, 24, "all"]
             ]
         })
     </script>

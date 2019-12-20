@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>input data obat</title>
+    <title>edit data obat</title>
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
@@ -38,7 +38,7 @@
                 
                 
             ?>
-            <form action="proses_edit_obat.php" method="POST" >
+            <form action="proses_edit_obat.php" method="POST" enctype="multipart/form-data" >
                 <div class="form-group">
                     <label for="">Kode Obat</label>
                     <input type="text" name="kode_obat" value="<?= $data->kode ?>" readonly class="form-control">
@@ -50,10 +50,10 @@
                 <div class="form-group">
                     <label for="">jenis obat</label>
                     <select name="jenis_obat" class="form-control">
-                        <option value="tablet">Tablet</option>
-                        <option value="kapsul">Kapsul</option>
-                        <option value="sirup">Sirup</option>
-                        <option value="bubuk">Bubuk</option>
+                        <option value="tablet" <?php if($data->jenis_obat=="tablet") echo 'selected="selected"' ?>>Tablet</option>
+                        <option value="kapsul" <?php if($data->jenis_obat=="kapsul") echo 'selected="selected"' ?>>Kapsul</option>
+                        <option value="sirup" <?php if($data->jenis_obat=="sirup") echo 'selected="selected"' ?>>Sirup</option>
+                        <option value="bubuk" <?php if($data->jenis_obat=="bubuk") echo 'selected="selected"' ?>>Bubuk</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -67,6 +67,10 @@
                 <div class="form-group">
                     <label for="">Expired</label>
                     <input type="date" name="expired" value="<?= $data->expired ?>" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">gambar</label>
+                    <input type="file" name="poto" value="<?= $data->poto ?>" class="form-control">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-success">simpan</button>
