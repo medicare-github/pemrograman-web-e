@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if ($_SESSION['status']!='login') {
+        header("location:index.php?pesan=belum_login");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +30,8 @@
                 <div class="navbar-nav">
                     <a class="nav-item nav-link active" href="Obat/DataObat.php">Data Obat</a>
                     <a class="nav-item nav-link" href="Obat/inputdataobat.php">Form input Obat</a>
-                    <a class="nav-item nav-link" href="card.html">Data Apoteker</a>
+                    <a class="nav-item nav-link" href="home.php">Data Apoteker</a>
+                    <a class="nav-item nav-link" href="Logout.php">logout</a>
                 </div>
             </div>
         </div>

@@ -92,7 +92,8 @@
             <tbody>
                 <?php 
                    include '../connection/connection.php';
-                   $query="SELECT * FROM tbl_obat";
+                   $query="SELECT * FROM tbl_obat JOIN tbl_jenis_obat 
+                   ON tbl_obat.id_jenis_obat=tbl_jenis_obat.id_jenis_obat";
                     $result=mysqli_query($con,$query);
                     $no=1;
                     while ($data=mysqli_fetch_object($result)) :                   
@@ -102,12 +103,12 @@
                      <?= $no ?>
                     </td>
                     <td><?php echo $data->nama_obat ?></td>
-                    <td> <?= $data->jenis_obat ?> </td>
+                    <td> <?= $data->nama_jenis_obat ?> </td>
                     <td> <?= $data->harga_beli ?> </td>
                     <td> <?= $data->harga_jual ?> </td>
                     <td> <?= $data->expired ?> </td>
                     <td>
-                        <img src="<?= $data->poto ?>" width="60px" height="60px">
+                        <img src="<?= $data->poto ?>" width="100px" height="100px">
                     </td>
                     <td>
                         <a href="edit_obat.php?kode=<?= $data->kode ?>" class="btn btn-warning">edit</a>
